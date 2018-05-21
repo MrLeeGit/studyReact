@@ -15,7 +15,7 @@ class Index extends React.Component{
     return (
       <div>
           <ComponentHeader/>
-          <BodyIndex />
+          <BodyIndex userid={642905561} username="Dan"/>
           <ComponentFooter />
       </div>
     )
