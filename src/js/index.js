@@ -16,13 +16,16 @@ class Index extends React.Component{
       <div>
           <ComponentHeader/>
           <BodyIndex userid={642905561} username="Dan"/>
+          {this.props.children}
           <ComponentFooter />
       </div>
     )
   }
 }
 
-ReactDOM.render(
-  <Index/>,
-  document.querySelector("#reactApp")
-)
+export default Index
+
+// ReactDOM.render(
+//   <Index/>,
+//   document.querySelector("#reactApp")
+// )

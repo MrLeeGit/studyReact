@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router'
 
 class ComponentHeader extends React.Component{
   constructor(){
@@ -22,8 +23,13 @@ class ComponentHeader extends React.Component{
       }
     }
     return (
-      <header>
-        <h2 style={styleComponentHeader.header} className="miniFooter" onClick={this.switchHeader.bind(this)}>这个页面的头部</h2>
+      <header style={styleComponentHeader.header} className="smallFontSize">
+        <h1>这个页面的头部</h1>
+        <ul>
+        <li><Link to={`/`}>首页</Link></li>
+					<li><Link to={`/details`}>嵌套的详情页面</Link></li>
+					<li><Link to={`/list/1234`}>列表页面</Link></li>
+        </ul>
       </header>
     )
   }
