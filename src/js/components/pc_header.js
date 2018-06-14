@@ -31,7 +31,7 @@ class PCHeader extends React.Component{
 			hasLogined: false,
 			userNickName: '',
 			userid: 0
-    }
+		}
   }
 
   setModalVisible(value){
@@ -52,8 +52,9 @@ class PCHeader extends React.Component{
       this.setModalVisible(true)
     }else{
       this.setState({current : event.key});
-    }
-  }
+		}
+	}
+
 
   handleSubmit(event){
     event.preventDefault();
@@ -92,8 +93,18 @@ class PCHeader extends React.Component{
         userNickName : localStorage.userNickName,
         userid : localStorage.userid
       })
-    }
-  }
+		}
+		let pathVal = location.pathname.split('/')[location.pathname.split('/').length-1] || 'top';
+		this.setState({
+			current : pathVal
+		})
+	}
+	componentWillReceiveProps(){
+		let pathVal = location.pathname.split('/')[location.pathname.split('/').length-1] || 'top';
+		this.setState({
+			current : pathVal
+		})
+	}
 
   render(){
     let {getFieldProps} = this.props.form;
@@ -116,36 +127,48 @@ class PCHeader extends React.Component{
 					<Col span={2}></Col>
 					<Col span={4}>
 						<a href="/" class="logo">
-							<img src="./src/images/logo.png" alt="logo"/>
+							<img src="http://p2.ifengimg.com/a/2018/0614/logo.png" alt="logo"/>
 							<span>ReactNews</span>
 						</a>
 					</Col>
 					<Col span={16}>
 						<Menu mode="horizontal" onClick={this.handleClick.bind(this)} selectedKeys={[this.state.current]}>
 							<Menu.Item key="top">
+							<Link to={`/`}>
 								<Icon type="appstore"/>头条
+							</Link>
 							</Menu.Item>
 							<Menu.Item key="shehui">
+							<Link to={`/ch/shehui`}>
 								<Icon type="appstore"/>社会
+							</Link>
 							</Menu.Item>
 							<Menu.Item key="guonei">
+							<Link to={`/ch/guonei`}>
 								<Icon type="appstore"/>国内
+							</Link>
 							</Menu.Item>
 							<Menu.Item key="guoji">
+							<Link to={`/ch/guoji`}>
 								<Icon type="appstore"/>国际
+							</Link>
 							</Menu.Item>
 							<Menu.Item key="yule">
+							<Link to={`/ch/yule`}>
 								<Icon type="appstore"/>娱乐
+							</Link>
 							</Menu.Item>
 							<Menu.Item key="tiyu">
+							<Link to={`/ch/tiyu`}>
 								<Icon type="appstore"/>体育
+							</Link>
 							</Menu.Item>
 							<Menu.Item key="keji">
-								<Icon type="appstore"/>科技
+								<Link to={`/ch/keji`}>
+									<Icon type="appstore"/>科技
+								</Link>
 							</Menu.Item>
-							<Menu.Item key="shishang">
-								<Icon type="appstore"/>时尚
-							</Menu.Item>
+							
 							{userShow}
 						</Menu>
 						<Modal title="用户中心" wrapClassName="vertical-center-modal" visible={this.state.modalVisible} onCancel= {()=>this.setModalVisible(false)} onOk={() => this.setModalVisible(false)}>
