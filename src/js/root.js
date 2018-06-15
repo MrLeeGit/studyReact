@@ -15,18 +15,18 @@ export default class Root extends React.Component {
 		return (
 			<div>
 				<MediaQuery query='(min-device-width: 1224px)'>
-					<Router history={hashHistory}>
-						<Route path="/" component={PCIndex}></Route>
-						<Route path="/details/:uniquekey" component={PCNewsDetails}></Route>
-						<Route path="/usercenter" component={PCUserCenter}></Route>
-						<Route path="/ch/:uniquekey" component={PCChannel}></Route>
+					<Router history={browserHistory}>
+						<Route path="/studyReact" component={PCIndex}></Route>
+						<Route path="/studyReact/details/:uniquekey" component={PCNewsDetails}></Route>
+						<Route path="/studyReact/usercenter" component={PCUserCenter}></Route>
+						<Route path="/studyReact/ch/:uniquekey" component={PCChannel}></Route>
 					</Router>
 				</MediaQuery>
 				<MediaQuery query='(max-device-width: 1224px)'>
-					<Router history={hashHistory}>
-						<Route path="/" component={MobileIndex}></Route>
-						<Route path="/details/:uniquekey" component={MobileNewsDetails}></Route>
-						<Route path="/usercenter" component={MobileUserCenter}></Route>
+					<Router history={browserHistory}>
+						<Route path="/studyReact" component={MobileIndex}></Route>
+						<Route path="/studyReact/details/:uniquekey" component={MobileNewsDetails}></Route>
+						<Route path="/studyReact/usercenter" component={MobileUserCenter}></Route>
 					</Router>
 				</MediaQuery>
 			</div>
