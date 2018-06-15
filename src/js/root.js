@@ -15,7 +15,7 @@ export default class Root extends React.Component {
 		return (
 			<div>
 				<MediaQuery query='(min-device-width: 1224px)'>
-					<Router history={browserHistory}>
+					<Router history={hashHistory}>
 						<Route path="/" component={PCIndex}></Route>
 						<Route path="/details/:uniquekey" component={PCNewsDetails}></Route>
 						<Route path="/usercenter" component={PCUserCenter}></Route>
@@ -23,7 +23,7 @@ export default class Root extends React.Component {
 					</Router>
 				</MediaQuery>
 				<MediaQuery query='(max-device-width: 1224px)'>
-					<Router history={browserHistory}>
+					<Router history={hashHistory}>
 						<Route path="/" component={MobileIndex}></Route>
 						<Route path="/details/:uniquekey" component={MobileNewsDetails}></Route>
 						<Route path="/usercenter" component={MobileUserCenter}></Route>
